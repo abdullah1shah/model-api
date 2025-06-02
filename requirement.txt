@@ -3,4 +3,4 @@ uvicorn
 pillow
 numpy
 tensorflow-cpu
-
+runpod
