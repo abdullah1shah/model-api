@@ -6,12 +6,15 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /app
 
+# Fix the filename here to requirements.txt
 COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-EXPOSE 5000
+# Expose port 8080 (common for cloud containers)
+EXPOSE 8080
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5000"]
+# Start uvicorn on port 8080
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
